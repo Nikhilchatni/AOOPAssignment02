@@ -1,0 +1,279 @@
+Q1. Write a Java program to build the GUI applicaton uuing JavaFX for the following requirementu:
+a) Read uuer name and pauuword uuing appropriate JavaFX controlu.
+b) Validate the input. If uuer name and pauuword are matched with the auuumed valueu, then
+diuplay the welcome ucene with proper text.
+c) If uuer name and pauuword don’t match, then print the failure meuuage.
+package application;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+public class usepasswd extends Application {
+String username="Jonathan";
+String password="j_0_9_";
+ String checkUser,checkPass;
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+launch(args);
+}
+public void start(Stage myStage) throws Exception {
+myStage.setTitle("Login Page");
+GridPane gp=new GridPane();
+GridPane gp1=new GridPane();
+gp.setAlignment(Pos.CENTER);
+gp1.setAlignment(Pos.CENTER);
+gp.setHgap(10);
+gp.setVgap(10);
+gp.setPadding(new Insets(20,20,20,20));
+Scene scene1=new Scene(gp,500,400);
+Scene scene2=new Scene(gp1,500,400);
+Text login=new Text("Login Page");
+Label uname=new Label("UserName: ");
+Label paswd=new Label("Password: ");
+Button submit=new Button("SUBMIT");
+TextField tf1=new TextField();
+PasswordField pf=new PasswordField();
+Label success=new Label("WELCOME TO THE PAGE");
+Label failure=new Label();
+gp.add(login,1,0);
+gp.add(uname,0,1);
+gp.add(tf1,1,1);
+gp.add(paswd,0,2);
+gp.add(pf,1,2);
+gp.add(submit,1,3);
+submit.setOnAction(new EventHandler<ActionEvent>() {
+public void handle(ActionEvent e) {
+checkUser=tf1.getText().toString();
+checkPass=pf.getText().toString();
+if(checkUser.equals(username)&&checkPass.equals(password)) {
+myStage.setScene(scene2);
+gp1.getChildren().addAll(success);
+}
+else {
+gp.add(failure,1,5);
+failure.setText("Invalid Username or Password");
+}
+}
+});
+myStage.setScene(scene1);
+myStage.show();
+}
+}
+Q2. Write a Java program to build the GUI applicaton uuing JavaFX for the following requirementu:
+a) Create a Menu control to diuplay the menu itemu: File, Edit & Help.
+b) Create uub menuu in the order: File → New, Open & Save. Edit → Cut, Copy & Paute.
+Help → Help Centre, About Uu
+package applicatonn 
+import javafx.applicaton.Applicatonn
+import javafx.ucene.Scenen
+import javafx.ucene.control.*n 
+
+import javafx.ucene.layout.BorderPanen 
+import javafx.utage.Stagen 
+public clauu menuuubmenu1 extendu Applicaton 
+ 
+ @Override 
+ public void utart(Stage primaryStage) throwu Excepton 
+ // TODO Auto-generated method utub 
+ BorderPane root = new BorderPane()n 
+ Scene ucene = new Scene(root,200,300)n 
+ MenuBar menubar = new MenuBar()n 
+ Menu FileMenu = new Menu("File")n 
+ MenuItem Fileuubmenu1=new MenuItem("New")n 
+ MenuItem Fileuubmenu2=new MenuItem("Open")n 
+ MenuItem Fileuubmenu3=new MenuItem("Save")n 
+ Menu EditMenu=new Menu("Edit")n 
+ MenuItem EdituubMenu1=new MenuItem("Cut")n 
+ MenuItem EdituubMenu2=new MenuItem("Copy")n 
+ MenuItem EdituubMenu3=new MenuItem("Paute")n
+ Menu HelpMenu=new Menu("Help")n 
+ MenuItem HelpuubMenu1=new MenuItem("Help Centre")n 
+ MenuItem HelpuubMenu2=new MenuItem("About Uu")n 
+ FileMenu.getItemu().addAll(Fileuubmenu1,Fileuubmenu2,Fileuubmenu3)n 
+ EditMenu.getItemu().addAll(EdituubMenu1,EdituubMenu2,EdituubMenu3)n 
+ root.uetTop(menubar)n 
+ HelpMenu.getItemu().addAll(HelpuubMenu1,HelpuubMenu2)n 
+ root.uetTop(menubar)n 
+ menubar.getMenuu().addAll(FileMenu,EditMenu,HelpMenu)n 
+ primaryStage.uetScene(ucene)n 
+ primaryStage.uhow()n 
+ }
+public utatc void main(StringO] argu) 
+ launch(argu)n 
+ } 
+}
+Q3. Write a Java program to build the GUI applicaton uuing JavaFX for the following requirementu:
+a) Create Context menu involving the menu itemu in the order: New & View.
+b) Create uub menuu for the above main context menu: New → File, Folder & Image.
+View → Large, Medium & Small.
+The context menu muut be diuplayed on right-click of the mouue buton.
+package application;
+import javafx.application.Application; 
+import javafx.scene.Scene; 
+import javafx.scene.control.*; 
+import javafx.scene.layout.*; 
+import javafx.stage.Stage; 
+public class contextMenu_1 extends Application { 
+// labels 
+Label l; 
+Label l1;
+TilePane tilePane;
+TilePane tilePane1;
+Scene sc;
+Scene sc1;
+// launch the application
+public void start(Stage stage) 
+{ 
+// set title for the stage 
+stage.setTitle("Context Menu"); 
+// create a label 
+Label label1 = new Label("New");
+Label labell1 = new Label("View");
+// create a menu 
+ContextMenu contextMenu = new ContextMenu(); 
+// create menuitems
+MenuItem menuItem1 = new MenuItem("File"); 
+MenuItem menuItem2 = new MenuItem("Folder"); 
+MenuItem menuItem3 = new MenuItem("Image"); 
+MenuItem menuItem4 = new MenuItem("Large"); 
+MenuItem menuItem5 = new MenuItem("Medium"); 
+MenuItem menuItem6 = new MenuItem("Small"); 
+// add menu items to menu 
+contextMenu.getItems().add(menuItem1); 
+contextMenu.getItems().add(menuItem2); 
+contextMenu.getItems().add(menuItem3); 
+contextMenu.getItems().add(menuItem4); 
+contextMenu.getItems().add(menuItem5); 
+contextMenu.getItems().add(menuItem6); 
+// create a tilepane
+TilePane tilePane = new TilePane(label1);
+TilePane tilePane1 = new TilePane(labell1); 
+// setContextMenu to label 
+label1.setContextMenu(contextMenu); 
+ labell1.setContextMenu(contextMenu);
+// create a scene 
+Scene sc = new Scene(tilePane, 200, 200); 
+ Scene sc1 = new Scene(tilePane1, 300, 300);
+// set the scene 
+stage.setScene(sc);
+stage.setScene(sc1);
+stage.show(); 
+} 
+public static void main(String args[]) 
+{ 
+// launch the application 
+launch(args); 
+} 
+}
+Q4. Write a JavaFX program that produceu the following output when executed and diuplayu Dialog 
+Box
+(au uhown in Figure.2) on click of Regiuter buton (au uhown in Figure.1):
+package application;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+public class Registration extends Application {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+launch(args);
+}
+public void start(Stage myStage) {
+GridPane gp=new GridPane();
+GridPane gp1=new GridPane();
+gp.setAlignment(Pos.CENTER);
+gp.setHgap(5);
+gp.setVgap(15);
+Scene scene1=new Scene(gp,550,400);
+Scene scene2=new Scene(gp1,500,200);
+myStage.setScene(scene1);
+myStage.setTitle("JavaFX Registration Form");
+Text t=new Text("Employee Registration Form");
+Label name=new Label("Enter Your Name:");
+Label gender =new Label("Select Your Gender:");
+Label dob=new Label("Enter DOB:");
+Label state =new Label("Select Your State:");
+Label qualification=new Label("Select Your Qualification:");
+TextField tf1=new TextField("Enter Your Name");
+RadioButton r1=new RadioButton("male");
+RadioButton r2=new RadioButton("Female");
+DatePicker d=new DatePicker();
+String s[]={"Karnataka","Maharashtra","UttarPradesh","Gujarat"};
+ChoiceBox c = new ChoiceBox(FXCollections. observableArrayList(s ));
+CheckBox cb1=new CheckBox("UG");
+CheckBox cb2=new CheckBox("PG");
+CheckBox cb3=new CheckBox("PhD");
+Button b=new Button("Register");
+t.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+t.setFill(Color.RED);
+gp.add(t, 1, 0);
+gp.add(name,0,1);
+gp.add(gender, 0, 2);
+gp.add(dob, 0, 3);
+gp.add(state, 0, 4);
+gp.add(qualification, 0, 5);
+gp.add(tf1, 1, 1);
+gp.add(r1, 1, 2);
+gp.add(r2, 2, 2);
+gp.add(d, 1,3);
+
+gp.add(c, 1, 4);
+gp.add(cb1, 1, 6);
+gp.add(cb2, 1, 7);
+gp.add(cb3, 1, 8);
+gp.add(b, 1, 9);
+Label regi=new Label("Registration Status");
+Label Empregi=new Label("Employee Registration is Successful!!");
+Line l=new Line();
+regi.setFont(new Font("Arial", 18));
+Empregi.setFont(new Font("Arial", 14));
+Empregi.setTextFill(Color.CHOCOLATE);
+Button OK=new Button(" OK ");
+b.setOnAction(new EventHandler<ActionEvent>() {
+public void handle(ActionEvent e) {
+myStage.setTitle("Registration Successful");
+myStage.setScene(scene2);
+gp1.add(regi,0, 0);
+gp1.add(l, 0, 1);
+gp1.add(Empregi,0,2);
+gp1.add(OK, 1,3);
+gp1.setVgap(30);
+gp1.setAlignment(Pos.CENTER);
+}
+});
+myStage.show();
+}
+}
